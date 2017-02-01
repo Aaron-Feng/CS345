@@ -33,7 +33,7 @@
   <nav class="collapse navbar-collapse">
   <div class="container">
   <ul class="nav navbar-nav"> 
-	<li class="dropdown">
+	<li class="dropdown">	
 	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="ture" aria-expanded="false" data-localize="menu.edit">Edit <span class="caret"></span></a>
 	<ul class="dropdown-menu">
             <li><a href="#" id="stackPopMenu">Pop <span class="pull-right">Alt+O</span></a></li>
