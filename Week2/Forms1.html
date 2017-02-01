@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+  <div class="container"><!-- 1st step: add container-->
+  <form>
+  <div class="form-group">
+  <label for="inputName">Name</label>
+  <input class="form-control" type="text" id="inputName" placeholder="Name"/><!-- 2nd step: add form-control class-->
+  </div>
+  
+  <div class="form-group"><!-- 3rd step: add form-group -->
+  <label for="inputEmail">Email</label>
+  <input class="form-control" type="email" id="inputEmail" placeholder="example@xxx.xxx"/>
+  </div>
+  
+  <div class="form-group">
+   <label for="selectState">State</label>
+   <select class="form-control" id="selectState">
+	<option>Choose...</option>
+	<option>IN</option>
+	<option>IL</option>
+	<option>OH</option>
+   </select>
+   </div>
+   
+   <div class="checkbox"><!-- 4th step: add checkbox -->
+   <input id="inputReceiveEmail" type="checkbox">
+    <label for="inputReceiveEmail">Receive Email</label>
+	</div>
+	
+	<div class="form-group">
+    <label for="inputComments">Comments</label>
+	<textarea id="inputComments"></textarea>
+	</div>
+	
+	<input class="btn btn-default pull-right" type="submit" value="submit"><!-- 5th step: add btn and btn-default -->
+	<!-- 6th step: add pull-right  -->
+	
+  </form>
+  </div>
+  
+  </body>
+  </html>

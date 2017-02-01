@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+  <div class="container">
+  <form>
+  <div class="form-group">
+  <label for="inputName">Name</label>
+  <input class="form-control" type="text" id="inputName" placeholder="Name"/>
+  </div>
+  
+  <div class="form-group">
+  <label for="inputEmail">Email</label>
+  <input class="form-control" type="email" id="inputEmail" placeholder="example@xxx.xxx"/>
+  </div>
+  
+  <div class="form-group">
+   <label for="selectState">State</label>
+   <select class="form-control" id="selectState">
+	<option>Choose...</option>
+	<option>IN</option>
+	<option>IL</option>
+	<option>OH</option>
+   </select>
+   </div>
+   
+   <div class="checkbox"><!-- 1st step: wrap checkbox into label -->
+   <label>
+   <input type="checkbox">
+    Receive Email</label>
+	</div>
+	
+
+   <label><input type="radio" name="options">One</label><!-- 2nd step: create radio button -->
+
+   <div class="radio">
+	<label><input type="radio" name="options">Two</label><!-- 3rd step: wrap with radio div -->
+	</div>
+	   
+	   <div class="form-group"> 
+	   <label class="radio-inline"><input type="radio" name="options">One</label><!-- 4th step: make radio inline -->
+	   <label class="radio-inline"><input type="radio" name="options">Two</label>
+	   </div>
+	   
+	   
+	<div class="form-group">
+    <label for="inputComments">Comments</label>
+	<textarea id="inputComments"></textarea>
+	</div>
+	
+	<input class="btn btn-default pull-right" type="submit" value="submit">
+
+	
+  </form>
+  </div>
+  
+  </body>
+  </html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>Project2</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="Project2.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div class="container"> 
+  <h1 class="text-center">Project2</h1>
+  <p></p>
+	<div class="row"> 
+		<div class="col-sm-9 col-xs-12 anamiArea">
+			<div class="moble">
+				<div id="leg1"><div class="feet"></div></div>
+				<div id="leg2"><div class="feet"></div></div>
+			</div>
+		</div>		
+		<div class="col-sm-3">
+			<button type="button" class="btn btn-md btn-default btn-block" id="btnWalk">Walk</button>
+			<br />			
+			<label class="text-center">Walk Speed</label>
+			<input type="range" id="speedRange" max="100" value="50">
+			<br/>
+			<button type="button" class="btn btn-md btn-default btn-block" id="btnZoom">Zoom</button>
+			<br />
+			<label class="text-center">Zoom Scale</label>
+			<input type="range" id="zoomRange" min="0.5" max="2.5" step="0.1" value="1">
+		</div>
+	</div>
+  </div>
+	<script src="Project2.js"></script>
+ </body>
+ </html>

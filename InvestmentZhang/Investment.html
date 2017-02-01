@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>Investment</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+	<link rel="stylesheet" href="invest.css" /> 
+
+</head>
+  <body>
+  <div class="container">
+  <form class="form-horizontal" onsubmit="return onSubmit();">
+  <div class="form-group">
+ <img src="banking.jpg" class="img-rounded col-sm-9 col-sm-offset-3" alt="Banking Image">
+ </div>
+ <div class="form-group ">
+ 
+ <label  for="inputInvestment" class="col-sm-3 control-label">Investment </label>
+ 
+ <div class="col-sm-9">
+ <div class="input-group"><span class="input-group-addon">$</span>
+ <input class="form-control" type="number" step="any" id="inputInvestment"
+ placeholder="Enter the amount for investment:" title="Enter the amount for investment:"
+ data-toggle="tooltip" data-placement="bottom" required>
+ </div>
+  </div>
+ </div>
+ 
+ <div class="form-group">
+ <label class="col-sm-3 control-label" for ="interestRate">Interest Rate</label>
+ <div class="col-sm-9">
+ <input class="form-control" type="number" step="any" id="interestRate" placeholder="Enter interest rate:"
+title="Enter interest rate:" data-toggle="tooltip" data-placement="bottom" required>
+  </div>
+ </div>
+ <div class="form-group">
+ <label class="col-sm-3 control-label" for ="years">Number of Years</label>
+ <div class="col-sm-9">
+ <input class="form-control" type="number" step="1" id="years" title="Enter Years:" 
+ placeholder="Enter Years" data-toggle="tooltip" data-placement="bottom" required> </div>
+ </div>
+
+ <div class="form-group">
+ <label class="col-sm-3 control-label" for ="finalValues">Final Values</label>
+ <div class="col-sm-9">
+ <div class="input-group" >
+ <span class="input-group-addon">$</span>
+ <input class="form-control" type="number" step="any" id="finalValues" readonly> </div>
+ </div>
+ </div>
+ <div class="form-group">
+ <div class="col-sm-offset-3 col-sm-3 col-xs-6">
+ <input type="submit" value="Compute" id="btnCompute" class="btn btn-success" >
+ </div>
+  <input type="reset" value="Clear" id="btnClear" class="btn btn-danger">
+ </div>
+ 
+  </form>
+  </div>
+  <script src="Invest.js"></script> 
+  </body>
+  </html>

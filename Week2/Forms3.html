@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+  <div class="container">
+  <form class="form-inline"> <!-- 1st step: add form-inline -->
+  <div class="form-group">
+  <label class="sr-only" for="inputName">Name</label><!-- 2nd step: make label invisible but sreen read can read it -->
+  <input aria-label="Type your name here" class="form-control" type="text" id="inputName" placeholder="Name"/>
+  <!-- 2nd step: another way, add aria-label attribute "Accessible Rich Internet Applications"-->
+  </div>
+  
+  
+  <div class="form-group">
+   <label class="sr-only" for="selectState">State</label>
+   <select class="form-control" id="selectState">
+	<option>Choose...</option>
+	<option>IN</option>
+	<option>IL</option>
+	<option>OH</option>
+   </select>
+   </div>
+   <div class="checkbox">
+  <label><input type="checkbox" class="checkEmail">Receive Email</label>
+  </div>
+  
+  <div class="form-group" id="divEmail" >
+  <div class="input-group"> 
+  <span class="input-group-addon">
+  <input type="checkbox" class="checkEmail">
+  </span>
+  <input class="form-control" type="email" id="inputEmail" aria-label="type email address" placeholder="example@xxx.xxx"/>
+  </div>
+  </div>
+	
+	<input class="btn btn-default" type="submit" value="submit">
+
+	
+  </form>
+  <div class="form-group"> 
+		<div class="input-group"> 
+			<input type="text" class="form-control" placeholder="Search term">
+			<span class="input-group-btn"> <button class="btn btn-default" type="button">Search</button></span>
+		</div>
+	</div>
+  </div>
+  <script>
+    $('#divEmail').hide();
+	$('.checkEmail').click(function(){
+		$('#divEmail').toggle(this.checked);
+		$('.checkbox').toggle(!this.checked);
+		if(this.checked){
+			$('.checkEmail').prop("checked",true);
+		}
+		else{
+			$('.checkEmail').prop("checked",false);
+		}
+	});
+  </script>
+  </body>
+  </html>

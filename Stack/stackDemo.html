@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>StackDemo</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="stackDemo.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+  <div class="container">
+  <form role="form" class="form-horizontal">
+  <div class="form-group">
+	<h1 style="text-align:center">Stack Demo</h1>
+	<br/>
+	<label class="control-label col-sm-3" for="showStack" style="font-size:20px;">Current Stack</label>
+	<div class="col-sm-9">
+	<textarea class="form-control" style="height:200px;" id="showStack" readonly></textarea>
+	</div>
+	
+  </div>
+  <div class="form-group" style="font-size:20px;">
+  <label class="control-label col-xs-3" for="inputNumber" style="font-size:20px;">Add to Stack</label>
+  <div class="col-xs-3">
+  <input type='number' id="inputNumber" class="form-control" placeholder="input a number">
+  </div>
+  	  <div class="col-xs-2 col-xs-offset-1">
+  <button type="button" class="btn btn-md btn-default" id="stackPush">Push</button>
+  </div>
+   <div class="col-xs-1">
+  	<button type="button" class="btn btn-md btn-default" id="stackPop">Pop</button>
+  </div>
+  <div class="col-xs-1">
+  	<button type="button" class="btn btn-md btn-default" id="clearBoard">Clear Board</button>
+  </div>
+  </div>
+  <div class="form-group">
+  <label class="control-label col-sm-3" for="showStep" style="font-size:20px;">Steps</label>
+  <div class="col-sm-9">
+  	<textarea class="col-sm-12 form-control" style="height:200px;" id="showStep" readonly></textarea></div>
+  </div>
+  </div>
+  </form>
+  <script src="stackDemo.js"></script>
+  </body>
+  </html>

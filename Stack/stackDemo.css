@@ -1,0 +1,5 @@
+textarea {
+    overflow-y: scroll;
+    resize: none; 
+	text-align:center;
+}

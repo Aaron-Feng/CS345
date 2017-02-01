@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+  <div class="container">
+  
+  <form class="form-horizontal"> <!-- 1st step: add form-horizontal -->
+  <div class="form-group">
+  
+  <label class="col-sm-2" for="inputName">Name</label><!-- 2nd step: manage columns based on 12 column grid system -->
+  <div class="col-sm-10">
+  <input class="form-control" type="text" id="inputName" placeholder="Name"/>
+  </div>
+  </div>
+  
+  <div class="form-group">
+  <label class="col-sm-2 control-label" for="inputEmail">Email</label><!-- 3rd step: formatting label to fit layout -->
+  <div class="col-sm-10">
+  <div class="input-group"> 
+  <span class="input-group-addon "><span class="glyphicon glyphicon-envelope"></span></span>
+  <input class="form-control" data-toggle="tooltip" data-placement="left" title="Email" type="email" id="inputEmail" placeholder="example@xxx.xxx"/>
+  </div>
+  </div>
+  </div>
+  
+  <div class="form-group">
+   <label class="col-sm-2 control-label" for="selectState">State</label>
+   <div class="col-sm-10">
+   <select class="form-control" id="selectState">
+	<option>Choose...</option>
+	<option>IN</option>
+	<option>IL</option>
+	<option>OH</option>
+   </select>
+   </div>
+   </div>
+   
+   <div class="form-group"><!-- 4th step: wrap checkbox in form-group and set checkbox col-sm-offset-2 -->
+   <div class="checkbox col-sm-10 col-sm-offset-2">
+   <label><input type="checkbox">Receive Email</label>
+	</div>
+	</div>
+	
+	 <div class="form-group">
+	 <div class="col-sm-10 col-sm-offset-2">
+	 <input class="btn btn-default" type="submit" value="submit"><!-- 5th step: wrap button in form-group and set button col-sm-offset-2 -->
+	</div>
+	</div>
+	
+  </form>
+  </div>
+  <script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
+  </body>
+  </html>
