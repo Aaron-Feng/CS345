@@ -76,3 +76,8 @@ $('#langCn').click(function(){
 $('#langEn').click(function(){
 	$("[data-localize]").localize("lang",{pathPrefix:"lang",language:"en"});
 });
+
+$('#langSp').click(function(){
+	$("[data-localize]").localize("lang",{pathPrefix:"lang",language:"sp"});
+});
+

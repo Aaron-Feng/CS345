@@ -1,0 +1,28 @@
+{
+	"action":{
+		"push":"Apilar",
+		"pop":"Desapilar ",
+		"peek":"Leer último",
+		"size":"Tamaño",
+		"isEmpty":"Vacía"
+	},
+	"menu":{
+		"edit":"Editar<span class='caret'></span>",
+		"setting":"Setting<span class='caret'></span>",
+		"tutorial":"Tutorial",
+		"contact":"Contacto"
+	},
+	"info":{
+		"push":"Pushed into the stack:",
+		"pushError":"Can't push the empty input.",
+		"pop":"Popped from the stack:",
+		"popError":"Can't pop from the empty stack.",
+		"peek":"Peeked the stack:",
+		"peekError":"Can't peek from the empty stack.",
+		"size":"The stack size is:",
+		"isEmpty":"The stack is empty.",
+		"isNotEmpty":"The stack is NOT empty.",
+		"clear":"Cleared stack."
+	},
+	"addLabel":"Add to Stack"
+}
