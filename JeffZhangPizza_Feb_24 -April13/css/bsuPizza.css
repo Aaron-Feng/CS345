@@ -1,2 +1,8 @@
-﻿body {
+﻿body {background-image:url("../images/rocha.jpg");
+}
+header {
+    padding:0 40px;
+}
+.logo {
+    height:50px; width:112px; float:left;
 }
