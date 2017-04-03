@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="Home" %>
+﻿<%@ Page Language="C#" ValidateRequest="false" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="Home" %>
 
 <!DOCTYPE html>
 
@@ -17,36 +17,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
+    <script src="js/ckeditor_4.5.7_standard/ckeditor/ckeditor.js"></script>
     <style type="text/css">
+        footer p {
+        color:white;
+        }
     </style>
 </head>
 <body class="has-drawer">
     <header class="container">
-        
+
         <nav class="collapse navbar-collapse navbar-inverse">
             <img class="logo" src="images/bsulogo.jpg" alt="bsulogo" />
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="Home.aspx">Home</a></li>
-                <li><a href="Order.aspx">Make a Order</a></li>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="ture" aria-expanded="false">User Information <span class="caret" /></a>
+            <ul class="nav navbar-nav" id="navBar">
+                <li><a href="Home.aspx" data-localize="nav.home">Home</a></li>
+                <li><a href="Order.aspx" data-localize="nav.order">Order Pizza</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span data-localize="nav.userInfo">User Information</span><span class="caret" /></a>
                     <ul class="dropdown-menu">
-                        <li><a href="BasicUser.aspx">Basic Information</a></li>
-                        <li><a href="DeliveryInfo.aspx">Delivery Information</a></li>
+                        <li><a href="BasicUser.aspx" data-localize="nav.userBasic">Basic Information</a></li>
+                        <li><a href="DeliveryInfo.aspx" data-localize="nav.userDelivery">Delivery Information</a></li>
                     </ul>
                 </li>
-                <li><a href="Login.aspx">Login </a></li>
-                <li><a href="Registration.aspx">Become a member</a></li>
+                <li><a href="Login.aspx" data-localize="nav.login">Login </a></li>
+                <li><a href="Registration.aspx" data-localize="nav.register">Become a member</a></li>
             </ul>
+            <div class="pull-right">
+                <a href="#" id="en">English</a>&emsp;
+                <a href="#" id="ch">Chinese</a>&emsp;
+                <a href="#" id="help" onclick="startIntro();">Help</a>
+
+            </div>
         </nav>
+
     </header>
     <div id="drawerMenu" class="drawer dw-xs-8 fold">
         <div class="drawer-controls visible-xs-block">
@@ -54,17 +56,22 @@
         </div>
         <div class="drawer-contents">
             <div class="drawer-heading">
-                <h2 class="drawer-title">Menu</h2>
+                <h2 class="drawer-title" data-localize="menu.title">Menu</h2>
             </div>
             <ul class="drawer-nav">
-                <li role="presentation" class="active"><a href="Home.aspx">Home</a></li>
-                <li role="presentation"><a href="Order.aspx">Order Pizza</a></li>
+                <li role="presentation" class="active"><a href="Home.aspx" data-localize="menu.home">Home</a></li>
+                <li role="presentation"><a href="Order.aspx" data-localize="menu.order">Order Pizza</a></li>
+                <li role="presentation"><a href="Login.aspx" data-localize="menu.login">Login </a></li>
+                <li role="presentation"><a href="Registration.aspx" data-localize="menu.register">Become a member</a></li>
             </ul>
             <div class="drawer-body">
-                <p>
+                <p data-localize="menu.body">
                     This page is for BSU Pizza store, you can order variety flavors of pizza on our website.
                     Also, this page is the sample for presentation.
                 </p>
+                <p><a href="#" onclick="en.click()">English</a></p>
+                <p><a href="#" onclick="ch.click()">Chinese</a></p>
+                <p><a href="#" onclick="startIntro();">Help</a></p>
             </div>
             <div class="drawer-footer locked text-center">
                 <small>&copy; Aaron Feng</small>
@@ -78,8 +85,8 @@
             <br />
             <br />
 
-            <asp:Label ID="LabelWelcome" runat="server" Text="Welcome to BSU Pizza" Font-Bold="True" Font-Italic="True" Font-Names="Chiller" Font-Size="20pt" ForeColor="#FF3399"></asp:Label>
-            <section class="liquid-slider text-center" id="main-slider" >
+            <asp:Label ID="LabelWelcome" runat="server" Text="Welcome to BSU Pizza" Font-Bold="True" Font-Italic="True" Font-Names="Chiller" Font-Size="20pt" ForeColor="#FF3399" data-localize="welcome"></asp:Label>
+            <section class="liquid-slider text-center" id="main-slider">
                 <div>
                     <img src="images/chicago.jpg" />
                 </div>
@@ -94,9 +101,37 @@
                 </div>
             </section>
 
-        </form>
+
+    <footer>
+        <p>This page is for BSU Pizza store, you can order variety flavors of pizza on our website.</p>
+        <p>Also, this page is the sample for presentation. </p>
+        <a href="#" data-toggle="modal" data-target="#contact" role="button">Contact</a>
+    </footer>
+    <div id="contact" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-label="Close the window" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Contact</h4>
+                </div>
+                <div class="modal-body">
+                    <asp:Label ID="Label1" runat="server" Text="Name:" CssClass="control-label" for="TextBoxName"></asp:Label>
+                    <asp:TextBox ID="TextBoxName" runat="server" CssClass="form-control"></asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="TextBoxContact" runat="server" CssClass="ckeditor" TextMode="MultiLine" ></asp:TextBox>
+                </div>
+                <div class="modal-footer">
+                    <asp:Label runat="server" ID="LabelMessage" ForeColor="Red" Visible="False"></asp:Label>
+                    <asp:Button ID="ButtonContact" runat="server" Text="Send" CssClass="btn btn-success" OnClick="ButtonContact_Click" />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 
+                    </form>
+    </div>
     <script src="js/slider/jquery.liquid-slider.min.js"></script>
     <script src="js/jquery.localize.min.js"></script>
     <script src="js/intro.js"></script>

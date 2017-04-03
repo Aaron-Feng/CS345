@@ -1,0 +1,21 @@
+﻿{
+  "nav": {
+    "home": "Home",
+    "order": "Order Pizza",
+    "userInfo": "User Information",
+    "userBasic": "Basic Information",
+    "userDelivery": "Delivery Information",
+    "login": "Login",
+    "register": "Become a member"
+  },
+  "menu": {
+    "body": " This page is for BSU Pizza store, you can order variety flavors of pizza on our website. Also, this page is the sample for presentation.",
+    "home": "Home",
+    "login": "Login",
+    "order": "Order Pizza",
+    "register": "Become a member",
+    "title": "Menu"
+  },
+  "welcome": "Welcome to BSU Pizza"
+
+}

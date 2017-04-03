@@ -21,7 +21,7 @@
         }
     </style>
 </head>
-<body class="has-drawer">
+<body class="has-drawer container">
     <header class="container">
 
         <nav class="collapse navbar-collapse navbar-inverse">
@@ -37,7 +37,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="Home.aspx">Home</a></li>
                 <li><a href="Order.aspx">Make a Order</a></li>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="ture" aria-expanded="false">User Information <span class="caret" /></a>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Information <span class="caret" /></a>
                     <ul class="dropdown-menu">
                         <li><a href="BasicUser.aspx">Basic Information</a></li>
                         <li><a href="DeliveryInfo.aspx">Delivery Information</a></li>
@@ -107,13 +107,13 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-4 control-label" for="TextBoxEamil">E-mail</label>
+            <label class="col-sm-4 control-label" for="TextBoxEmail">E-mail</label>
             <div class="col-sm-4">
-                <asp:TextBox ID="TextBoxEamil" runat="server" class="form-control"></asp:TextBox>
+                <asp:TextBox ID="TextBoxEmail" runat="server" class="form-control"></asp:TextBox>
             </div>
             <div class="col-sm-4">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server" ErrorMessage="Email is required" ForeColor="Red" ControlToValidate="TextBoxEamil"></asp:RequiredFieldValidator><br />
-                <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="You must enter a valid email address" ControlToValidate="TextBoxEamil" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red"></asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server" ErrorMessage="Email is required" ForeColor="Red" ControlToValidate="TextBoxEmail"></asp:RequiredFieldValidator><br />
+                <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="You must enter a valid email address" ControlToValidate="TextBoxEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red"></asp:RegularExpressionValidator>
             </div>
         </div>
         <div class="form-group">

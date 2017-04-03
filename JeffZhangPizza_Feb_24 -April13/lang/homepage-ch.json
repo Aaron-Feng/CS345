@@ -1,0 +1,20 @@
+﻿{
+  "menu": {
+    "body": "这里是BSUpizza店，有丰富的选择。此页面仅供演示使用。",
+    "home": "主页",
+    "login": "登录",
+    "order": "点餐",
+    "register": "注册",
+    "title": "菜单"
+  },
+  "nav": {
+    "home": "主页",
+    "login": "登录",
+    "order": "点餐",
+    "register": "注册",
+    "userBasic": "基本信息",
+    "userDelivery": "外卖地址",
+    "userInfo": "用户信息"
+  },
+  "welcome": "欢迎光临BSU Pizza！"
+}

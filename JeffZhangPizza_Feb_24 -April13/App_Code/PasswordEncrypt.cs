@@ -6,14 +6,14 @@ using System.Web;
 using System.Security.Cryptography;
 using System.Text;
 
-public class PasswordEnvrypt
+public class PasswordEncrypt
 {
-	public PasswordEnvrypt()
+	public PasswordEncrypt()
 	{
 		
 	}
 
-    public string encryptString(string input) {
+    public static string encryptString(string input) {
         MD5 md5 = new MD5CryptoServiceProvider();
         md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(input));
         byte[] result = md5.Hash;

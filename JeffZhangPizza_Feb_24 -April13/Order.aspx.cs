@@ -8,13 +8,26 @@ using System.Configuration;
 using System.Data.SqlClient;
 public partial class Order : System.Web.UI.Page
 {
+    decimal price = 0;
+    protected void updatePrice() {
+        price = Convert.ToDecimal(DropDownListPizzaSize.SelectedValue);
+        for (int i = 0; i < CheckBoxListToppings.Items.Count; i++)
+        {
+            if (CheckBoxListToppings.Items[i].Selected)
+            {
+                price += Convert.ToDecimal(CheckBoxListToppings.Items[i].Value);
+            }
+        }//close for 
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["user"] == null)
-        {
-    Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
+        //    if (Session["user"] == null)
+        //    {
+        //Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
 
-        }
+        //    }
+       updatePrice();
+       LabelPrice.Text="Total Price:" + price;
     }
     protected void CheckBoxListToppings_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -43,28 +56,27 @@ public partial class Order : System.Web.UI.Page
     }
     protected void ButtonNext_Click(object sender, EventArgs e)
     {
-        decimal price = 0;
+        updatePrice();
         string toppings = "";
-        double tax = 0.07;
-        price += Convert.ToDecimal(DropDownListPizzaSize.SelectedValue);
         for (int i = 0; i < CheckBoxListToppings.Items.Count; i++) {
             if (CheckBoxListToppings.Items[i].Selected) {
-                toppings += CheckBoxListToppings.Items[i].Text + ", ";
-                price += Convert.ToDecimal(CheckBoxListToppings.Items[i].Value);
+                toppings += CheckBoxListToppings.Items[i].Text + ", ";          
             }
         }//close for 
-        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["PizzaDBRemote"].ConnectionString);
-        conn.Open();
-        string qry = "insert into [Order] values (@size, @style,@toppings,@price, @userName)";
-        SqlCommand cmd = new SqlCommand(qry, conn);
-        cmd.Parameters.AddWithValue("@size", DropDownListPizzaSize.SelectedItem.Text);
-        cmd.Parameters.AddWithValue("@style", DropDownListPizzaStyle.SelectedItem.Text);
-        cmd.Parameters.AddWithValue("@toppings", toppings);
-        cmd.Parameters.AddWithValue("@price", price*(decimal)(1+tax));
-        cmd.Parameters.AddWithValue("@userName",Session["user"].ToString());
-        cmd.ExecuteNonQuery();
-        conn.Close();
-        Response.Redirect("OrderSummary.aspx");
+        ShoppingCartUti cart = new ShoppingCartUti();
+        cart.PizzaSize = DropDownListPizzaSize.SelectedItem.ToString();
+        cart.PizzaStyle = DropDownListPizzaStyle.SelectedItem.ToString();
+        cart.Price = (double)price*(1.07);
+        cart.Toppings = toppings;
+        cart.UserName = Session["user"].ToString();
+        cart.insertShoppingCart();
+        Response.Redirect("OrderConfirm.aspx?id=" + cart.ID);
+    }
+
+    protected void DropDownListPizzaSize_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        updatePrice();
+        LabelPrice.Text = "Total Price:" + price;
 
     }
 }
