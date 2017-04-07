@@ -8,70 +8,55 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
+using System.Net.Mail;
+
 public partial class ResetPassword : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
-    protected string encryptString(string input)
-    {
-        MD5 md5 = new MD5CryptoServiceProvider();
-        md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(input));
-        byte[] result = md5.Hash;
-        StringBuilder strBuilder = new StringBuilder();
-        for (int i = 0; i < result.Length; i++)
-        {
-            strBuilder.Append(result[i].ToString("x2"));
-        }
 
-        return strBuilder.ToString();
-    }
-    protected void setNewPassword() {
-        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["PizzaDBRemote"].ConnectionString);
-        conn.Open();
-        string updateString = "update Customer set Customer.Password=@password where Customer.UserName=@userName";
-        SqlCommand comd = new SqlCommand(updateString, conn);
-        comd.Parameters.AddWithValue("@userName", TextBoxUserName.Text);
-        //PasswordEnvrypt encrypt = new PasswordEnvrypt();
-        comd.Parameters.AddWithValue("@password", encryptString("m12345"));
-        comd.ExecuteNonQuery();
-        conn.Close();
-    
-    }
     protected void ButtonResetPassword_Click(object sender, EventArgs e)
     {
-        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["PizzaDBRemote"].ConnectionString);
-        conn.Open();
-        string selectionString = "select * from Customer where Customer.UserName=@userName";
-        SqlCommand comd = new SqlCommand(selectionString, conn);
-        comd.Parameters.AddWithValue("@userName", TextBoxUserName.Text);
-        SqlDataReader dr = comd.ExecuteReader();
-        dr.Read();
-        if (dr.HasRows) {
-            if (dr["Email"].ToString() == TextBoxEmail.Text)
-            {
-                this.setNewPassword();
-                LabelMessage.Visible = true;
-                LabelMessage.Text = "Your password has been reset as m12345";
-                LabelMessage.ForeColor = System.Drawing.Color.Red;
-                dr.Close();
-                conn.Close();
+        CustomerUti customer = new CustomerUti().getUser(TextBoxUserName.Text);
+        if (customer.Email.Equals(TextBoxEmail.Text))
+        {
+            int rand = new Random().Next(100000, 999999);
+            string newpwd = "new" + rand;
+            customer.resetPassword(newpwd);
 
-            }
-            else {
-                LabelMessage.Visible = true;
-                LabelMessage.Text = "Your Email or UserName are not correct!!";
-                LabelMessage.ForeColor = System.Drawing.Color.Red;
-                dr.Close();
-                conn.Close();
-            }
+            LabelMessage.Visible = true;
+            LabelMessage.Text = "Your password has been reset as " + newpwd;
+            LabelMessage.ForeColor = System.Drawing.Color.Red;
+            sendNotification(customer.Email);
         }
-        dr.Close();
-        conn.Close();
-        //Monday
+        else
+        {
+            LabelMessage.Visible = true;
+            LabelMessage.Text = "Your Email or UserName are not correct!!";
+            LabelMessage.ForeColor = System.Drawing.Color.Red;
+        }
+    }
+    protected void sendNotification(string email)
+    {
+        SmtpClient smtpClient = new SmtpClient("smtp.office365.com", 587);
+        smtpClient.UseDefaultCredentials = true;
+        smtpClient.Credentials = new System.Net.NetworkCredential("zfeng@bsu.edu", "Fzy755214");
+        smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+        smtpClient.EnableSsl = true;
+        MailMessage mail = new MailMessage();
 
+        //Setting From , To and CC
+        mail.From = new MailAddress("zfeng@bsu.edu", "Test Mail", System.Text.Encoding.UTF8);
+        mail.To.Add(new MailAddress(email));
+        mail.Subject = "Reset Password";
+        mail.SubjectEncoding = System.Text.Encoding.UTF8;
+        mail.Body = "Your password has been reset as m12345";
+        mail.BodyEncoding = System.Text.Encoding.UTF8;
+        mail.IsBodyHtml = true;
+        mail.Priority = MailPriority.High;
+        smtpClient.Send(mail);
     }
 
-    
 }

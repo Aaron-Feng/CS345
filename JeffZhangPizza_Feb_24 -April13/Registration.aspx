@@ -182,6 +182,6 @@
 </div> 
     </form>
     <script src="js/drawer.js"></script>
-    <script src="js/bsuPizza.js"></script>
+    <script> $('#drawerMenu').drawer({ toggle: false });</script>
 </body>
 </html>

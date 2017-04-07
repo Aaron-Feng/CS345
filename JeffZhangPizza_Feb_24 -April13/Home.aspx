@@ -80,10 +80,6 @@
     </div>
     <div class="container">
         <form id="form1" runat="server">
-            <br />
-            <br />
-            <br />
-            <br />
 
             <asp:Label ID="LabelWelcome" runat="server" Text="Welcome to BSU Pizza" Font-Bold="True" Font-Italic="True" Font-Names="Chiller" Font-Size="20pt" ForeColor="#FF3399" data-localize="welcome"></asp:Label>
             <section class="liquid-slider text-center" id="main-slider">

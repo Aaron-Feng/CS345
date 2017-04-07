@@ -27,9 +27,4 @@ public partial class OrderConfirm : System.Web.UI.Page
     }
 
 
-    protected void GridViewAddress_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        DetailsViewAddress.ChangeMode(DetailsViewMode.ReadOnly);
-        DetailsViewAddress.PageIndex = GridViewAddress.SelectedIndex;
-    }
 }

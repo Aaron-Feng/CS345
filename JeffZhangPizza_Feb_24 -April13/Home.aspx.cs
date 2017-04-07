@@ -9,16 +9,16 @@ using System.Web.UI.WebControls;
 
 public partial class Home : System.Web.UI.Page
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        if (Session["user"] == null)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            LabelWelcome.Text = "Please <a href='Login.aspx'>log in</a> first, " + LabelWelcome.Text;
+            if (Session["user"] == null)
+            {
+                LabelWelcome.Text = "Please <a href='Login.aspx'>log in</a> first, " + LabelWelcome.Text;
+            }
+            else {
+                LabelWelcome.Text = Session["user"].ToString() +", " + LabelWelcome.Text;
+            }
         }
-        else {
-            LabelWelcome.Text = Session["user"].ToString() +", " + LabelWelcome.Text;
-        }
-    }
 
     protected void ButtonContact_Click(object sender, EventArgs e)
     {
