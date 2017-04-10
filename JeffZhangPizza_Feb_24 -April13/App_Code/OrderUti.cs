@@ -17,6 +17,7 @@ public class OrderUti
     public string Toppings { get; set; }
     public double Price { get; set; }
     public string OrderTime { get; set; }
+    public string AddressId { get; set; }
     public OrderUti()
     {
         //
@@ -26,13 +27,14 @@ public class OrderUti
     public void insertOrder() {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["PizzaDBRemote"].ConnectionString);
         conn.Open();
-        string qry = "insert into [Order] (UserName, PizzaSize,PizzaStyle,Toppings,Price) values (@UserName, @PizzaSize,@PizzaStyle,@Toppings, @Price)";
+        string qry = "insert into [Order] (UserName, PizzaSize,PizzaStyle,Toppings,Price,AddressId) values (@UserName, @PizzaSize,@PizzaStyle,@Toppings, @Price,@AddressId)";
         SqlCommand cmd = new SqlCommand(qry, conn);
         cmd.Parameters.AddWithValue("@UserName", UserName);
         cmd.Parameters.AddWithValue("@PizzaSize", PizzaSize);
         cmd.Parameters.AddWithValue("@PizzaStyle", PizzaStyle);
         cmd.Parameters.AddWithValue("@Toppings", Toppings);
         cmd.Parameters.AddWithValue("@Price", Price);
+        cmd.Parameters.AddWithValue("@AddressId", AddressId);
         cmd.ExecuteNonQuery();
         conn.Close();
     }

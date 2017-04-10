@@ -29,6 +29,10 @@ public partial class Registration : System.Web.UI.Page
             try
             {
                 customer.insertData();
+                string strRedirectPage = "Login.aspx";
+                string strRedirectTime = "2";
+                string strRedirect = string.Format("{0};url={1}", strRedirectTime, strRedirectPage);
+                Response.AddHeader("refresh", strRedirect);
             }
             catch (Exception ex)
             {

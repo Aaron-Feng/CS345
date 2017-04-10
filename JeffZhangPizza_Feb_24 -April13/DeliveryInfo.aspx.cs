@@ -15,4 +15,9 @@ public partial class DeliveryInfo : System.Web.UI.Page
 
         }
     }
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Response.Write("<script language=javascript> var agree; agree=confirm('Do you want to finish this order?'); window.location='OrderConfirm.aspx?id="+GridView1.SelectedRow.Cells[1].Text+"';</script>");
+    }
 }

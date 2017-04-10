@@ -65,16 +65,17 @@
         </div>
     </div>
     <div class="container">
-    <form id="form1" runat="server">
+    <form id="form1" class="form-horizontal" runat="server">
     <br />
         <br />
         <br />
         <br />
         <div class="row">
-        <div class="col-sm-offset-3">Your Shopping Cart is showing below:<br /></div>
+        <div class="col-sm-offset-3">
+            <asp:Label ID="Label2" runat="server" Text="Your Shopping Cart is showing below:" Font-Size="X-Large"></asp:Label></div>
             </div>
             <div class="row">
-        <asp:GridView ID="GridViewOrder" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSourceOrder" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="True" CssClass="col-sm-offset-3">
+        <asp:GridView ID="GridViewOrder" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSourceOrder" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="True" CssClass="col-sm-offset-3" Font-Size="X-Large">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
@@ -99,11 +100,48 @@
                 <asp:QueryStringParameter Name="Id" QueryStringField="id" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
-                <div class="form-group"></div>
-                <div class="form-group"></div>
-                <div class="form-group"></div>
-                <div class="form-group"></div>
-                <div class="form-group"></div>
+        <br />
+        <br />
+        <br />
+
+                <div class="form-group">
+                    <asp:Label ID="Label1" runat="server" Text="AddressType:" CssClass="col-sm-4 control-label" for="TextBoxAddressType"></asp:Label>
+                    <div class="col-sm-4">
+                    <asp:TextBox ID="TextBoxAddressType" class="form-control" runat="server"></asp:TextBox>
+                        </div>
+                    <div class="col-sm-4">
+                    <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server" DataSourceID="SqlDataSource1" DataTextField="AddressType" DataValueField="ID" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                    <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString="Data Source=SQL5016.SmarterASP.NET;Initial Catalog=DB_9BC2B3_zfeng;User ID=DB_9BC2B3_zfeng_admin;Password=Fzy755214" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [AddressType], [ID] FROM [Address] WHERE ([UserName] = @UserName)">
+                        <SelectParameters>
+                            <asp:SessionParameter SessionField="user" Name="UserName" Type="String"></asp:SessionParameter>
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                        </div>
+                </div>
+                <div class="form-group"><asp:Label ID="Label3" runat="server" Text="AddressLine1:" CssClass="control-label col-sm-4" for="TextBoxAddressLine1"></asp:Label>
+                    <div class="col-sm-4">
+                    <asp:TextBox ID="TextBoxAddressLine1" class="form-control" runat="server"></asp:TextBox>
+                        </div>
+                    <div class="col-sm-4"></div>
+                </div>
+                             <div class="form-group"><asp:Label ID="Label4" runat="server" Text="AddressLine2:" CssClass="control-label col-sm-4" for="TextBoxAddressLine2"></asp:Label>
+                    <div class="col-sm-4">
+                    <asp:TextBox ID="TextBoxAddressLine2" class="form-control" runat="server"></asp:TextBox>
+                        </div>
+                    <div class="col-sm-4">&nbsp;</div>
+                </div>
+                     <div class="form-group"><asp:Label ID="Label5" runat="server" Text="ZipCode:" CssClass="control-label col-sm-4" for="TextBoxZipCode"></asp:Label>
+                    <div class="col-sm-4">
+                    <asp:TextBox ID="TextBoxZipCode" class="form-control" runat="server"></asp:TextBox>
+                        </div>
+                    <div class="col-sm-4"></div>
+                </div>
+                     <div class="form-group"><asp:Label ID="Label6" runat="server" Text="Phone:" CssClass="control-label col-sm-4" for="TextBoxPhone"></asp:Label>
+                    <div class="col-sm-4">
+                    <asp:TextBox ID="TextBoxPhone" class="form-control" runat="server"></asp:TextBox>
+                        </div>
+                    <div class="col-sm-4"></div>
+                </div>
     <div class="col-sm-offset-3">
         <asp:Button ID="ButtonCheckOut" runat="server" OnClick="ButtonCheckOut_Click" class="btn btn-primary btn-lg" Text="CheckOut" />
         </div>
