@@ -35,7 +35,7 @@ public partial class Login : System.Web.UI.Page
         else {
             LabelMessage.Enabled = true;
             LabelMessage.Visible = true;
-            LabelMessage.Text = "Your Passowrd is in correct!";
+            LabelMessage.Text = "Your Username Or Passowrd is in correct!";
             LabelMessage.ForeColor = Color.Red;
             LinkButtonForgotPassword.Enabled = true;
             LinkButtonForgotPassword.Visible = true;

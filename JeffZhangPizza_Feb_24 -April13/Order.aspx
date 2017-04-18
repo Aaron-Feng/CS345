@@ -117,7 +117,7 @@
                      <div class="form-group">
         <asp:Label ID="Label1" runat="server" class="control-label col-sm-4" Text="Choose Pizza Size:"></asp:Label>
                      <div class="col-sm-8">
-        <asp:DropDownList ID="DropDownListPizzaSize" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="DropDownListPizzaSize_SelectedIndexChanged">
+        <asp:DropDownList ID="DropDownListPizzaSize" runat="server" class="form-control" AutoPostBack="True">
             <asp:ListItem Value="5" Selected="True">Small</asp:ListItem>
             <asp:ListItem Value="6">Medium</asp:ListItem>
             <asp:ListItem Value="7">Large</asp:ListItem>
@@ -142,7 +142,7 @@
             <asp:ListItem Value="1">Pepperoni</asp:ListItem>
             <asp:ListItem Value="1">Steak</asp:ListItem>
         </asp:CheckBoxList>
-        <asp:Button ID="ButtonNext" runat="server" Text="Order" OnClick="ButtonNext_Click" class="btn btn-lg btn-primary col-sm-offset-3" />
+        <asp:Button ID="ButtonNext" runat="server" Text="Order" OnClick="ButtonNext_Click" class="btn btn-lg btn-primary col-sm-offset-4" />
     </form>
             </div>
         </div>
