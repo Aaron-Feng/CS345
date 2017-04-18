@@ -14,18 +14,17 @@ public partial class ResetPassword : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+      
     }
 
     protected void ButtonResetPassword_Click(object sender, EventArgs e)
     {
         CustomerUti customer = new CustomerUti().getUser(TextBoxUserName.Text);
-        if (customer.Email.Equals(TextBoxEmail.Text))
+        if (!String.IsNullOrEmpty(customer.Email) && customer.Email.Equals(TextBoxEmail.Text))
         {
             int rand = new Random().Next(100000, 999999);
             string newpwd = "new" + rand;
             customer.resetPassword(newpwd);
-
             LabelMessage.Visible = true;
             LabelMessage.Text = "Your password has been reset as " + newpwd;
             LabelMessage.ForeColor = System.Drawing.Color.Red;
@@ -34,7 +33,7 @@ public partial class ResetPassword : System.Web.UI.Page
         else
         {
             LabelMessage.Visible = true;
-            LabelMessage.Text = "Your Email or UserName are not correct!!";
+            LabelMessage.Text = "Your Email or UserName are not matched!!";
             LabelMessage.ForeColor = System.Drawing.Color.Red;
         }
     }

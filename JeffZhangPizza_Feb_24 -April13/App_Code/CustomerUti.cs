@@ -74,7 +74,7 @@ public class CustomerUti
         CustomerUti customer = new CustomerUti();
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["PizzaDBRemote"].ConnectionString);
         conn.Open();
-        string checkUser = "select (UserName, FName, LName, Email, Country, Password, Age, Gender) from Customer where UserName=@userName";
+        string checkUser = "select UserName, FName, LName, Email, Country, [Password], Age, Gender from Customer where UserName=@userName";
         SqlCommand comd = new SqlCommand(checkUser, conn);
         comd.Parameters.AddWithValue("@userName", userName);
         SqlDataReader dr = comd.ExecuteReader();
