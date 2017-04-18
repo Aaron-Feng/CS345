@@ -41,17 +41,17 @@ public partial class ResetPassword : System.Web.UI.Page
     {
         SmtpClient smtpClient = new SmtpClient("smtp.office365.com", 587);
         smtpClient.UseDefaultCredentials = true;
-        smtpClient.Credentials = new System.Net.NetworkCredential("zfeng@bsu.edu", "Fzy755214");
+        smtpClient.Credentials = new System.Net.NetworkCredential("YourEmailAddress", "YourEmailPassword");
         smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
         smtpClient.EnableSsl = true;
         MailMessage mail = new MailMessage();
 
         //Setting From , To and CC
-        mail.From = new MailAddress("zfeng@bsu.edu", "Test Mail", System.Text.Encoding.UTF8);
+        mail.From = new MailAddress("YourEmailAddress", "Server Email", System.Text.Encoding.UTF8);
         mail.To.Add(new MailAddress(email));
         mail.Subject = "Reset Password";
         mail.SubjectEncoding = System.Text.Encoding.UTF8;
-        mail.Body = "Your password has been reset as m12345";
+        mail.Body = "Your password has been reset as "+ newpwd;
         mail.BodyEncoding = System.Text.Encoding.UTF8;
         mail.IsBodyHtml = true;
         mail.Priority = MailPriority.High;
